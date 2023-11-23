@@ -1,0 +1,430 @@
+body {
+    background-color: rgba(245, 245, 220, 0.151);
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.not-found {
+    width: 60%;
+    height: 10rem;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+    background-color: rgb(240, 252, 219);
+    color: rgba(0, 0, 255, 0.603);
+    font-weight: bold;
+    text-transform: capitalize;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: x-large;
+}
+
+.not-found .link {
+    text-decoration: none;
+    border: 1px solid black;
+    padding: 10px 20px;
+    background-color: rgb(229, 252, 165);
+}
+
+
+
+.auth-container {
+    width: 90vw;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+}
+
+.auth-section {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.auth-img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+
+.auth-header {
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+.error {
+    padding: 10px 5px;
+    text-transform: capitalize;
+    color: red;
+    background-color: rgba(255, 0, 0, 0.073);
+    border-radius: 5px;
+    text-align: center;
+}
+
+.brand-name {
+    /* color: #dfa; */
+    color: #55F;
+    /* background-color: #55F; */
+    padding: 2px 3px;
+    margin-left: 0%;
+    font-weight: 600;
+    font-family: Brush Script MT, Brush Script Std, cursive;
+    border-radius: 5px;
+}
+
+.navbar {
+    border-bottom: 2px solid rgba(85, 85, 255, 0.432);
+    background-color: white;
+}
+
+.navbar-profile {
+    margin-right: 10px;
+
+}
+
+.profile-container {
+    margin-top: 20px;
+    background-color: white;
+}
+
+.profile-head {
+    text-align: center;
+    padding-top: 20px;
+    border-radius: 1%;
+    /* border: 1px solid green; */
+    box-shadow: 1px 1px 2px 2px rgba(85, 85, 255, 0.24);
+}
+
+
+.profile-pic {
+    width: 75%;
+    border-radius: 50%;
+    margin-bottom: 10px;
+    border: 1px solid green;
+}
+
+.profile-head-info {
+    text-align: start;
+    padding-left: 10px;
+}
+
+.profile-body {
+    padding-left: 20px;
+}
+
+.post {
+    border: 1px solid rgba(128, 128, 128, 0.164);
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 1px 1px 1px 1px rgba(85, 85, 255, 0.205);
+    padding-bottom: 0%;
+    margin-bottom: 10px;
+    background-color: white;
+}
+
+.comments {
+    background-color: rgba(245, 245, 220, 0.37);
+    font-size: smaller;
+    padding: 0px 6px;
+    border-radius: 5px;
+}
+
+
+
+.comments .user-name {
+    color: #55F;
+}
+
+
+.comments .deleteBtn {
+    display: inline;
+    float: right;
+    cursor: pointer;
+}
+
+.comments-container {
+    border-top: #55F 1px solid;
+    padding-top: 10px;
+}
+
+.nav-logo {
+    color: rgba(85, 85, 255, 0.938);
+}
+
+
+.title-container .threedots {
+    display: inline;
+    float: right;
+    cursor: pointer;
+}
+
+.title-container .avatar-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.title .name {
+    font-size: 15px;
+    font-weight: normal;
+    margin-right: 10px;
+}
+
+.title-container .avatar-container .avatar {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 5px;
+    border: 2px solid #DFA;
+}
+
+.post .title {
+    font-size: larger;
+    font-weight: 500;
+}
+
+.post .content {
+    font-size: medium;
+}
+
+.post .creator {
+    font-size: small;
+    text-align: end;
+    float: right;
+}
+
+.post .interact-btn {
+    cursor: pointer;
+    /* color: white; */
+    color: #55F;
+    font-weight: 600;
+    /* font-size: smaller; */
+    padding: 2px;
+    margin-right: 10px;
+    background-color: rgba(221, 255, 170, 0.295);
+    border-radius: 5px;
+    box-shadow: 1px 1px 1px 1px rgba(85, 85, 255, 0.37);
+}
+
+
+.post .interact-text {
+    font-size: smaller;
+}
+
+.newpost-header {
+    background-color: rgba(221, 255, 170, 0.671);
+    color: #55F;
+    font-weight: 600;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.home-body {
+    /* margin-top: 70px; */
+    padding-top: 10px;
+}
+
+.faq-container {
+    padding-top: 14px;
+    width: 60%;
+    padding-bottom: 30px;
+}
+
+.contact-img {
+    width: 30vw;
+}
+
+.contact-container {
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
+.brandpage-container {
+    /* width: 100vw;
+    height: 89.5vh;
+    padding: 30px;
+    background-image: url(./assets/toronto.jpg);
+    background-repeat: no-repeat;
+    background-size: cover; */
+    width: 100%;
+    height: 89.5vh;
+    /* background-color: rgba(85, 85, 255, 0.075); */
+}
+
+.brandpage-text {
+    /* background-color: rgba(221, 255, 170, 0.295); */
+    /* background-color: beige; */
+    /* color: #55F; */
+    color: #55f;
+    font-weight: bold;
+    padding: 20px;
+    font-size: 2rem;
+    text-shadow: 5px 5px #DFA;
+}
+
+.brandpage-getstarted {
+    width: fit-content;
+    padding-right: 20px;
+    padding-left: 20px;
+    background-color: rgba(221, 255, 170, 0.479);
+    color: #55F;
+}
+
+.news-sidebar {
+    background-color: white;
+    border-radius: 5px;
+    height: 85vh;
+    box-shadow: 0px 0px 1px 1px rgba(85, 85, 255, 0.253);
+}
+
+.news-sidebar-header {
+    /* background-color: rgba(221, 255, 170, 0.205); */
+    background-color: rgba(85, 85, 255, 0.082);
+    height: 50px;
+    border-radius: 5px 5px 0px 0px;
+    text-align: center;
+    padding-top: 10px;
+    font-weight: bold;
+    color: #55F
+}
+
+.blogs-sidebar {
+    background-color: white;
+    border-radius: 5px;
+    height: 85vh;
+    box-shadow: 1px 1px 0px 0px rgba(85, 85, 255, 0.253);
+}
+
+.blogs-sidebar-header {
+    /* background-color: rgba(221, 255, 170, 0.205); */
+    background-color: rgba(85, 85, 255, 0.082);
+    height: 50px;
+    border-radius: 5px 5px 0px 0px;
+    text-align: center;
+    padding-top: 10px;
+    font-weight: bold;
+    color: #55F;
+}
+
+.news-sidebar-body {
+    padding-left: 9px;
+    padding-top: 5px;
+    font-family: monospace;
+    font-size: medium;
+}
+
+.blogs-sidebar-body {
+    padding-left: 9px;
+    padding-top: 5px;
+    font-family: monospace;
+    font-size: medium;
+}
+
+.blog-container {
+    margin: 25px;
+    padding: 0px 25px;
+}
+
+.blog-container h2 {
+    text-align: center;
+    font-family: monospace;
+}
+
+.blog-submit-btn {
+    cursor: pointer;
+    color: #55F;
+    font-weight: 600;
+    padding: 2px 8px;
+    margin-right: 5px;
+    margin-top: 20px;
+    background-color: rgba(221, 255, 170, 0.295);
+    border-radius: 5px;
+    box-shadow: 1px 1px 1px 1px rgba(85, 85, 255, 0.37);
+    border: none;
+}
+
+.preview-container {
+    margin-left: auto;
+    margin-right: auto;
+    width: 90vw;
+    border: 1px solid #55F;
+    background-color: white;
+    padding: 5px 10px;
+    margin-top: 20px;
+    border-radius: 5px;
+}
+
+.preview-container #preview {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.blog-summary {
+    margin: 20px 20px;
+    padding: 20px 20px;
+    /* border: 1px solid #55F; */
+    border-radius: 5px;
+    box-shadow: 2px 2px 2px 2px rgba(85, 85, 255, 0.281);
+}
+
+.home-blogs-link:hover {
+    text-decoration: underline #55f;
+}
+
+@media only screen and (max-width: 560px) {
+    .profile-pic {
+        width: 45%;
+        border-radius: 50%;
+    }
+
+    .profile-body {
+        margin-top: 20px;
+        padding-left: 10px;
+    }
+
+    .profile-container {
+        padding: 20px 30px
+    }
+
+    .faq-container {
+        width: 90%;
+        margin-bottom: 40px;
+    }
+
+    .contact-img {
+        width: max-content;
+        height: 250px;
+    }
+
+    .contact-container {
+        margin-top: 20px;
+        margin-bottom: 60px;
+    }
+
+    .brandpage-container {
+        width: 100%;
+        height: 92vh;
+    }
+
+    .blogs-sidebar {
+        display: none;
+    }
+
+    .news-sidebar {
+        display: none;
+    }
+
+    .blog-container {
+        margin: 5px;
+        padding: 5px 5px;
+    }
+}
+
+@media only screen and (min-width: 800px) {
+    .profile-head {
+        height: 80vh;
+    }
+
+}
