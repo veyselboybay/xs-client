@@ -11,6 +11,7 @@ import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
 import { toast } from 'react-toastify'
 import Comment from './Comment'
+import avatarimg from '../assets/avatar2.jpg'
 
 const base_url = import.meta.env.VITE_APP_BASE_URL;
 
@@ -124,7 +125,7 @@ const Post = ({ post }) => {
             <div className='title-container'>
                 <p className='threedots'><BsThreeDotsVertical style={{ color: 'black' }} /></p>
                 <div className='avatar-container'>
-                    <img src='./src/assets/avatar2.jpg' className='avatar' />
+                    <img src={avatarimg} className='avatar' />
                     <p className='title'><span className='name'>@{user !== null && user.username} - {user !== null && user.school}</span></p>
                 </div>
             </div>

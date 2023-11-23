@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Navbar, Container, Nav, Button, NavDropdown } from 'react-bootstrap'
 import imgUrl from '../assets/favicon.ico';
+import navbarpp from '../assets/avatar2.jpg';
 import { FaRegCircleQuestion } from "react-icons/fa6";
 import { BsFillPenFill, BsNewspaper, BsPen } from 'react-icons/bs'
 import { ImExit, ImProfile } from 'react-icons/im'
@@ -50,7 +51,7 @@ const NavBar = () => {
                     </Nav>
                     {isLoggedIn === true && <div className="d-flex ms-auto order-5">
                         <NavDropdown title={<><div className='avatar-container'>
-                            <img src='./src/assets/avatar2.jpg' className='avatar' style={{ width: '25px', float: 'left', borderRadius: '50px' }} />
+                            <img src={navbarpp} className='avatar' style={{ width: '25px', float: 'left', borderRadius: '50px' }} />
                         </div> <span style={{ marginLeft: '5px', }}>{username}</span></>} id="basic-nav-dropdown">
                             <NavDropdown.Item>{username !== null && <div className='navbar-logout' onClick={(e) => navigate("/profile")}><ImProfile className='nav-logo' /> Profile</div>}</NavDropdown.Item>
                             <NavDropdown.Item>{username !== null && <div className='navbar-logout' onClick={(e) => logoutUser(e)}> <ImExit className='nav-logo' /> Logout</div>}</NavDropdown.Item>

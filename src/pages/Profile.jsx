@@ -17,7 +17,7 @@ import { FaRegTrashCan } from "react-icons/fa6";
 import { FaArrowDown } from "react-icons/fa";
 import { toast } from 'react-toastify'
 import { BsFillPenFill } from 'react-icons/bs'
-
+import avatarUrl from '../assets/avatar2.jpg'
 import { AiOutlineRead } from 'react-icons/ai'
 
 const base_url = import.meta.env.VITE_APP_BASE_URL;
@@ -81,7 +81,7 @@ const Profile = () => {
             {isLoading && <Spinner />}
             {success && <Row>
                 <Col md={3} className='profile-head'>
-                    <img src="./src/assets/avatar2.jpg" alt="profile pic" className='profile-pic' />
+                    <img src={avatarUrl} alt="profile pic" className='profile-pic' />
                     <div className='profile-head-info'>
                         <p><MdAlternateEmail /> {profile.username}</p>
                         <p><AiFillCheckCircle style={{ color: 'green' }} /> Active User since {moment(profile.created_at).format('YYYY')}</p>

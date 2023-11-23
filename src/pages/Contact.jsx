@@ -4,6 +4,7 @@ import { AiFillLinkedin, AiFillFacebook, AiFillTwitterSquare, AiFillBook, AiFill
 import { BsFillGearFill, BsFillArrowDownSquareFill } from 'react-icons/bs'
 import BottomNavBar from '../components/BottomNavBar'
 import { toast } from 'react-toastify'
+import imgUrl from '../assets/toronto.jpg'
 
 const Contact = () => {
     const [contact, setContact] = useState({ email: '', message: '' })
@@ -41,7 +42,7 @@ const Contact = () => {
                     </div>
                 </Col>
                 <Col md={4}>
-                    <img className='contact-img' src='./src/assets/toronto.jpg' />
+                    <img className='contact-img' src={imgUrl} />
                 </Col>
                 <Col md={2} />
             </Row>

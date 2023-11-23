@@ -5,7 +5,7 @@ import { Container, Col, Row, Button } from 'react-bootstrap';
 import { useNavigate } from 'react-router';
 import { useSelector } from 'react-redux';
 import BottomNavBar from '../components/BottomNavBar';
-
+import sideimg from '../assets/auth-side-pic.jpg';
 
 const Auth = () => {
     const navigate = useNavigate()
@@ -21,7 +21,7 @@ const Auth = () => {
         <Container className='auth-container'>
             <Row>
                 <Col md={6} className='auth-img-container'>
-                    <img className='auth-img' src='./src/assets/auth-side-pic.jpg' />
+                    <img className='auth-img' src={sideimg} />
                 </Col>
                 <Col md={6} className='auth-section'>
                     <Row>
