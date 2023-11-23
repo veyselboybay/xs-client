@@ -32,7 +32,7 @@ const NavBar = () => {
             <Container>
                 <Navbar.Brand onClick={(e) => navigate("/")} style={{ cursor: 'pointer' }}>
                     <img
-                        src={imgUrl}
+                        src={require(imgUrl)}
                         width="30"
                         height="30"
                         className="d-inline-block align-top"
