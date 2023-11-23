@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Navbar, Container, Nav, Button, NavDropdown } from 'react-bootstrap'
-const imgUrl = './src/assets/favicon.ico'
+import imgUrl from './src/assets/favicon.ico';
 import { FaRegCircleQuestion } from "react-icons/fa6";
 import { BsFillPenFill, BsNewspaper, BsPen } from 'react-icons/bs'
 import { ImExit, ImProfile } from 'react-icons/im'
@@ -32,7 +32,7 @@ const NavBar = () => {
             <Container>
                 <Navbar.Brand onClick={(e) => navigate("/")} style={{ cursor: 'pointer' }}>
                     <img
-                        src={require(imgUrl)}
+                        src={imgUrl}
                         width="30"
                         height="30"
                         className="d-inline-block align-top"
