@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom"
+import { Routes, Route, HashRouter } from "react-router-dom"
 import Home from './pages/Home'
 import NotFound from './pages/NotFound'
 import Profile from './pages/Profile'
@@ -25,7 +25,7 @@ function App() {
       <NavBar />
       <ToastContainer />
       <Routes>
-        <Route path="/" element={<BrandPage />} />
+        <Route exact path="/" element={<BrandPage />} />
         <Route path="/home" element={<Home />} />
         <Route path="/auth" element={<Auth />} />
         <Route path="/profile" element={<Profile />} />
