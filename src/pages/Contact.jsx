@@ -41,7 +41,7 @@ const Contact = () => {
                         <p><AiFillPhone /> Phone:</p>
                     </div>
                 </Col>
-                <Col md={4}>
+                <Col md={4} style={{ textAlign: 'center' }}>
                     <img className='contact-img' src={imgUrl} />
                 </Col>
                 <Col md={2} />

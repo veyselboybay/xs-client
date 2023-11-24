@@ -395,8 +395,7 @@ body {
     }
 
     .contact-img {
-        width: max-content;
-        height: 250px;
+        width: 90vw;
     }
 
     .contact-container {
