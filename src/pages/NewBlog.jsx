@@ -8,7 +8,7 @@ import { toast } from 'react-toastify';
 import { useSelector } from 'react-redux';
 import moment from 'moment/moment';
 import axios from 'axios';
-import { useNavigate } from 'react-router';
+import { useLocation, useNavigate } from 'react-router';
 
 const base_url = import.meta.env.VITE_APP_BASE_URL;
 
@@ -17,7 +17,8 @@ const NewBlog = () => {
     const { username, accessToken } = useSelector(state => state.auth)
     const [title, setTitle] = useState('')
     const [content, setContent] = useState('');
-    const [preview, setPreview] = useState(false)
+    const [preview, setPreview] = useState(false);
+    const location = useLocation()
     const handleSubmit = async (e) => {
         e.preventDefault()
         if (title === '' && content === '') {
@@ -53,10 +54,18 @@ const NewBlog = () => {
         setPreview(!preview)
     }
     useEffect(() => {
-        if (!accessToken || !localStorage.getItem('accessToken')) {
+        if (!accessToken && !localStorage.getItem('accessToken')) {
             navigate('/auth')
         }
+        const handleBeforeUnload = (event) => {
+            event.preventDefault();
+        };
+        window.addEventListener('beforeunload', handleBeforeUnload);
+        return () => {
+            window.removeEventListener('beforeunload', handleBeforeUnload);
+        };
     }, [])
+
     return (
         <div className='blog-container'>
             <h2>Create a New Blog</h2>
