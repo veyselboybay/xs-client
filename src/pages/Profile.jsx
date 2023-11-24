@@ -41,14 +41,14 @@ const Profile = () => {
     }, [success])
     useEffect(() => {
         const getPosts = async () => {
-            await axios.get(base_url + '/posts/mine', { headers: { Authorization: accessToken } }).then(res => {
+            await axios.get(base_url + '/posts/mine', { headers: { Authorization: accessToken || localStorage.getItem('accessToken') } }).then(res => {
                 setPosts(res.data.posts)
             }).catch(error => {
                 console.log(error)
             })
         }
         const getBlogs = async () => {
-            await axios.get(base_url + '/blogs/mine', { headers: { Authorization: accessToken } }).then(res => {
+            await axios.get(base_url + '/blogs/mine', { headers: { Authorization: accessToken || localStorage.getItem('accessToken') } }).then(res => {
                 setBlogs(res.data.blogs)
             }).catch(error => {
                 console.log(error)
@@ -66,7 +66,7 @@ const Profile = () => {
         }
         if (ans) {
             try {
-                const res = await axios.delete(base_url + `/posts/${postId}`, { headers: { Authorization: accessToken } });
+                const res = await axios.delete(base_url + `/posts/${postId}`, { headers: { Authorization: accessToken || localStorage.getItem('accessToken') } });
                 if (res.status === 204) {
                     setPosts(posts.filter(post => post._id !== postId))
                 }
