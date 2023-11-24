@@ -15,7 +15,7 @@ const Blogs = () => {
     const { isLoading, success, msg, blogs } = useSelector(state => state.blogs)
     const dispatch = useDispatch()
     useEffect(() => {
-        if (!accessToken || !localStorage.getItem('accessToken')) {
+        if (!accessToken && !localStorage.getItem('accessToken')) {
             navigate('/auth')
         }
         dispatch(getBlogs(accessToken || localStorage.getItem('accessToken')))

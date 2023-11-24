@@ -30,7 +30,7 @@ const Profile = () => {
     const [blogs, setBlogs] = useState(null);
     const navigate = useNavigate()
     useEffect(() => {
-        if (!isLoggedIn || !localStorage.getItem('accessToken')) {
+        if (!isLoggedIn && !localStorage.getItem('accessToken')) {
             return navigate('/')
         }
     }, [])
