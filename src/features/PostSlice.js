@@ -19,9 +19,9 @@ export const getPosts = createAsyncThunk('posts', async (token, thunkApi) => {
     }
 })
 
-export const newPost = createAsyncThunk('newPost', async ({content,token}, thunkApi) => {
+export const newPost = createAsyncThunk('newPost', async ({content,linkUrl,token}, thunkApi) => {
     try {
-        const res = await axios.post(base_url + '/posts', { content }, { headers: { Authorization: token } });
+        const res = await axios.post(base_url + '/posts', { content,linkUrl }, { headers: { Authorization: token } });
         return res.data;
     } catch (error) {
         return thunkApi.rejectWithValue(error.response.data);
