@@ -152,6 +152,10 @@ body {
 }
 
 .nav-logo {
+    color: grey;
+}
+
+.nav-logo:hover {
     color: rgba(85, 85, 255, 0.938);
 }
 

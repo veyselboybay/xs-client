@@ -74,7 +74,7 @@ const NewPost = () => {
             {showLinkBox && <Form.Check // prettier-ignore
                 type='checkbox'
                 id={`link-checkbox`}
-                label={'Attach a link? - (Uncheck will lose your link data'}
+                label={'Attach a link? - (Unchecking will delete your url link)'}
                 style={{ fontSize: 'small', paddingLeft: '25px' }}
                 name='addLink'
                 onChange={(e) => {

@@ -26,12 +26,10 @@ const Post = ({ post }) => {
     const [comments, setComments] = useState([]);
     const [showDeleteOptions, setShowDeleteOptions] = useState(false)
     const [commentText, setCommentText] = useState("")
-    const linkUrl = 'http://localhost:5173/#/blog/652efe54c1f161da89ccca49/65558209799c846fec43cf38';
 
     const changeLike = async (action) => {
         await axios.get(base_url + `/posts/${post._id}/${action}`, { headers: { Authorization: accessToken } }).then(res => {
             if (res.data.success) {
-                console.log(res.data)
                 if (like) {
                     setNumberOfLikes(prev => prev - 1)
                 }
@@ -131,7 +129,7 @@ const Post = ({ post }) => {
                 </div>
             </div>
             {showFullContent && <p className='content'>{post.content} {post.linkUrl && <><br /><a style={{ fontSize: 'small' }} href={post.linkUrl} target='_blank'>Go to attached link</a></>} <span style={{ fontSize: 'smaller', color: 'blue', cursor: 'pointer' }} onClick={(e) => handleFullContent(e)}> ...less</span></p>}
-            {!showFullContent && <p className='content'>{post.content.substring(0, 100)}{post.linkUrl && <><br /><a style={{ fontSize: 'small' }} href={post.linkUrl} target='_blank'>Go to  attached link</a></>}{post.content.length > 100 && <span style={{ fontSize: 'smaller', color: 'blue', cursor: 'pointer' }} onClick={(e) => handleFullContent(e)}> ...more</span>}</p>}
+            {!showFullContent && <p className='content'>{post.content.substring(0, 100)}{post.linkUrl && <><br /><a style={{ fontSize: 'small' }} href={post.linkUrl} target='_blank'>Go to  the attached link</a></>}{post.content.length > 100 && <span style={{ fontSize: 'smaller', color: 'blue', cursor: 'pointer' }} onClick={(e) => handleFullContent(e)}> ...more</span>}</p>}
             <p className='creator'>{moment(post.created_at).format('MMM Do YY')}</p>
             <p>
                 <span className='interact-btn' onClick={(e) => handleLike(e)}>{like ? <AiFillLike /> : <AiOutlineLike />} <span className='interact-text'>Like  </span></span>

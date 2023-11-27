@@ -3,10 +3,12 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { useDispatch, useSelector } from 'react-redux';
 import { login } from '../features/AuthSlice';
+import { useNavigate } from 'react-router';
 
 
 
 const Login = () => {
+    const navigate = useNavigate()
     const dispatch = useDispatch()
     const { msg, success } = useSelector(state => state.auth)
     const [showError, setShowError] = useState(false);
@@ -22,6 +24,7 @@ const Login = () => {
             setShowError(true)
             setTimeout(() => { setShowError(false) }, 3000)
         }
+
 
     }
     const handleChange = (e) => {

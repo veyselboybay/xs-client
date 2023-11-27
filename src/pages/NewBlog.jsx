@@ -19,6 +19,7 @@ const NewBlog = () => {
     const [content, setContent] = useState('');
     const [preview, setPreview] = useState(false);
     const location = useLocation()
+
     const handleSubmit = async (e) => {
         e.preventDefault()
         if (title === '' && content === '') {
@@ -65,6 +66,8 @@ const NewBlog = () => {
             window.removeEventListener('beforeunload', handleBeforeUnload);
         };
     }, [])
+
+
 
     return (
         <div className='blog-container'>

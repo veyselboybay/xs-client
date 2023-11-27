@@ -17,6 +17,7 @@ const Blog = () => {
     const [userData, setUserData] = useState(null)
     const [notFound, setNotFound] = useState(false);
     const [serverError, setServerError] = useState(false);
+    const location = useLocation();
     useEffect(() => {
         const getBlogData = async () => {
             try {
@@ -52,7 +53,7 @@ const Blog = () => {
             }
         }
         if (!accessToken && !localStorage.getItem('accessToken')) {
-            return navigate('/auth')
+            return navigate(`/auth?redirectTo=${location.pathname}`)
         }
         getBlogData()
         getUserData()
@@ -102,7 +103,7 @@ const Blog = () => {
                 <p style={{ textAlign: 'center', fontSize: 'small', fontStyle: 'italic' }}>Written by @{userData && userData.username} - {blogData && moment(blogData.created_at).format('MMM Do YYYY')} - {blogData && Math.ceil(blogData.content.length / 1500) + ' min(s) reading'}</p>
                 <hr />
 
-                <div id='content' dangerouslySetInnerHTML={{ __html: blogData && blogData.content }}></div>
+                <div style={{ paddingRight: '5vw', paddingLeft: '5vw', paddingBottom: '5vw' }} id='content' dangerouslySetInnerHTML={{ __html: blogData && blogData.content }}></div>
             </div >}
         </>
     )

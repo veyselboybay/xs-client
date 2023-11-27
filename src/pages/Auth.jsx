@@ -6,14 +6,21 @@ import { useNavigate } from 'react-router';
 import { useSelector } from 'react-redux';
 import BottomNavBar from '../components/BottomNavBar';
 import sideimg from '../assets/auth-side-pic.jpg';
+
+import { useSearchParams } from 'react-router-dom';
 // const sideimg = 'https://raw.githubusercontent.com/veyselboybay/xs-client/main/src/assets/auth-side-pic.jpg';
 
 const Auth = () => {
     const navigate = useNavigate()
     const [isLogin, setIsLogin] = useState(true)
     const { isLoggedIn, accessToken } = useSelector(state => state.auth);
+    const [searchParams, setSearchParams] = useSearchParams()
 
     useEffect(() => {
+        const redirect = searchParams.get('redirectTo');
+        if (redirect && isLoggedIn) {
+            return navigate(redirect)
+        }
         if (isLoggedIn === true && accessToken !== null) {
             navigate('/home')
         }
