@@ -4,7 +4,7 @@ import BlogSummary from '../components/BlogSummary'
 import { useDispatch, useSelector } from 'react-redux'
 import { getBlogs } from '../features/BlogSlice'
 import { AiFillFileAdd } from 'react-icons/ai'
-import { useNavigate } from 'react-router'
+import { useLocation, useNavigate } from 'react-router'
 import { toast } from 'react-toastify'
 import { BsFillSendCheckFill, BsEar } from 'react-icons/bs'
 import { GiSparkles } from 'react-icons/gi'
@@ -14,9 +14,10 @@ const Blogs = () => {
     const { accessToken } = useSelector(state => state.auth)
     const { isLoading, success, msg, blogs } = useSelector(state => state.blogs)
     const dispatch = useDispatch()
+    const location = useLocation()
     useEffect(() => {
         if (!accessToken && !localStorage.getItem('accessToken')) {
-            navigate('/auth')
+            navigate(`/auth?redirectTo=${location.pathname}`)
         }
         dispatch(getBlogs(accessToken || localStorage.getItem('accessToken')))
     }, [])

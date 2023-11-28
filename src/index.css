@@ -267,6 +267,28 @@ body {
     padding: 20px;
     font-size: 2rem;
     text-shadow: 5px 5px #DFA;
+    text-align: center;
+    padding-top: 25vh;
+}
+
+.brandpage-header {
+    /* background-color: rgba(221, 255, 170, 0.295); */
+    /* background-color: beige; */
+    /* color: #55F; */
+    color: rgb(70, 70, 158);
+    font-weight: bold;
+    padding: 20px;
+    font-size: 2rem;
+    text-shadow: 5px 5px #DFA;
+    text-align: center;
+    padding-top: 15vh;
+}
+
+.brandpage-text-two {
+    /* color: #55f; */
+    /* font-weight: bold; */
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
 }
 
 .brandpage-getstarted {
@@ -275,6 +297,18 @@ body {
     padding-left: 20px;
     background-color: rgba(221, 255, 170, 0.479);
     color: #55F;
+}
+
+.brandpage-img {
+    width: 35vw;
+    padding-top: 10vh;
+    border-radius: 5px;
+}
+
+.brandpage-image {
+    width: 45vw;
+    padding-top: 5px;
+    border-radius: 5px;
 }
 
 .news-sidebar {
@@ -423,6 +457,23 @@ body {
     .blog-container {
         margin: 5px;
         padding: 5px 5px;
+    }
+
+    .brandpage-img {
+        width: 80vw;
+        padding-top: 0vh;
+    }
+
+    .brandpage-text {
+        padding-top: 5vh;
+    }
+
+    .brandpage-header {
+        padding-top: 5vh;
+    }
+
+    .brandpage-image {
+        width: 70vw;
     }
 }
 
