@@ -13,6 +13,9 @@ import { toast } from 'react-toastify'
 import Comment from './Comment'
 import avatarimg from '../assets/avatar2.jpg'
 
+import avatarUrlOne from '../assets/avatar1.jpg'
+import avatarUrlTwo from '../assets/avatar2.jpg'
+
 const base_url = import.meta.env.VITE_APP_BASE_URL;
 
 const Post = ({ post }) => {
@@ -96,7 +99,7 @@ const Post = ({ post }) => {
                 if (res.data.success) {
                     setUser(res.data.user)
                 } else {
-                    setUser({ id: 'unknown', username: 'unknown', school: 'unknown' })
+                    setUser({ id: 'unknown', username: 'unknown', school: 'unknown', avatarNumber: 'One' })
                 }
             }).catch(error => {
                 console.log(error)
@@ -124,7 +127,7 @@ const Post = ({ post }) => {
             <div className='title-container'>
                 <p className='threedots'><BsThreeDotsVertical style={{ color: 'black' }} /></p>
                 <div className='avatar-container'>
-                    <img src={avatarimg} className='avatar' />
+                    <img src={user && user.avatarNumber === 'One' ? avatarUrlOne : avatarUrlTwo} className='avatar' />
                     <p className='title'><span className='name'>@{user !== null && user.username} - {user !== null && user.school}</span></p>
                 </div>
             </div>

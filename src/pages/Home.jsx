@@ -58,10 +58,10 @@ const Home = () => {
                                 <p>* We don't have any blogs so far!</p>
                                 <p>* We are going to share some of them here.</p>
                             </>}
-                            {0 > blogs.length < 8 && blogs.map(blog => {
+                            {0 > blogs.length < 6 && blogs.map(blog => {
                                 return <p key={blog._id} className='home-blogs-link' onClick={(e) => navigate(`/blog/${blog.ownerId}/${blog._id}`)} style={{ cursor: 'pointer' }}>* {blog.title}</p>
                             })}
-                            {blogs.length > 8 && blogs.slice(0, 9).map(blog => {
+                            {blogs.length > 6 && blogs.slice(0, 7).map(blog => {
                                 return <p key={blog._id} className='home-blogs-link' onClick={(e) => navigate(`/blog/${blog.ownerId}/${blog._id}`)} style={{ cursor: 'pointer' }}>* {blog.title}</p>
                             })}
                         </div>

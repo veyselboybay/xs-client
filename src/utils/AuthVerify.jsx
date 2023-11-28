@@ -22,7 +22,8 @@ const AuthVerify = () => {
         if (accessToken === null && token !== null) {
             const username = window.localStorage.getItem('username')
             const userId = window.localStorage.getItem('userId')
-            dispatch(setCredentials({ accessToken: token, userId, username }))
+            const avatarNumber = window.localStorage.getItem('avatarNumber')
+            dispatch(setCredentials({ accessToken: token, userId, username, avatarNumber }))
         }
 
         if (accessToken) {

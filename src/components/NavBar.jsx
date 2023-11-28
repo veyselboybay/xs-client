@@ -12,9 +12,12 @@ import { useSelector, useDispatch } from 'react-redux'
 import { logout } from '../features/AuthSlice'
 import { logoutProfile } from '../features/ProfileSlice'
 
+import avatarUrlOne from '../assets/avatar1.jpg'
+import avatarUrlTwo from '../assets/avatar2.jpg'
+
 
 const NavBar = () => {
-    const { isLoggedIn, username } = useSelector(state => state.auth);
+    const { isLoggedIn, username, avatarNumber } = useSelector(state => state.auth);
     const dispatch = useDispatch()
     const navigate = useNavigate()
 
@@ -51,7 +54,7 @@ const NavBar = () => {
                     </Nav>
                     {isLoggedIn === true && <div className="d-flex ms-auto order-5">
                         <NavDropdown title={<><div className='avatar-container'>
-                            <img src={navbarpp} className='avatar' style={{ width: '25px', float: 'left', borderRadius: '50px' }} />
+                            <img src={avatarNumber === 'One' ? avatarUrlOne : avatarUrlTwo} className='avatar' style={{ width: '25px', float: 'left', borderRadius: '50px', border: '1px solid green' }} />
                         </div> <span style={{ marginLeft: '5px', }}>{username}</span></>} id="basic-nav-dropdown">
                             <NavDropdown.Item>{username !== null && <div className='navbar-logout' onClick={(e) => navigate("/profile")}><ImProfile className='nav-logo' /> Profile</div>}</NavDropdown.Item>
                             <NavDropdown.Item>{username !== null && <div className='navbar-logout' onClick={(e) => logoutUser(e)}> <ImExit className='nav-logo' /> Logout</div>}</NavDropdown.Item>

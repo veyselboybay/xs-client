@@ -28,6 +28,7 @@ const initialState = {
     isLoading: false,
     userId: null,
     username: null,
+    avatarNumber: null,
     isLoggedIn: false,
     accessToken: null,
     success: null,
@@ -53,10 +54,11 @@ const authSlice = createSlice({
             // state = {...initialState}
         },
         setCredentials: (state, action) => {
-            const { accessToken, userId, username } = action.payload;
+            const { accessToken, userId, username, avatarNumber } = action.payload;
             state.userId = userId;
             state.username = username;
             state.accessToken = accessToken;
+            state.avatarNumber = avatarNumber;
             state.isLoggedIn = true;
         }
     },
@@ -71,9 +73,11 @@ const authSlice = createSlice({
             state.accessToken = action.payload.token;
             state.success = action.payload.success;
             state.msg = action.payload.msg;
+            state.avatarNumber = action.payload.avatarNumber;
             localStorage.setItem('accessToken', action.payload.token);
             localStorage.setItem('userId', action.payload.id);
             localStorage.setItem('username', action.payload.username);
+            localStorage.setItem('avatarNumber', action.payload.avatarNumber);
         }).addCase(login.rejected, (state, action) => {
             state.isLoading = false;
             state.success = false;
