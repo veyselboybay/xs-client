@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { useLocation, useNavigate, useParams } from 'react-router';
 import { CiEdit } from "react-icons/ci";
-import { FaRegTrashCan } from "react-icons/fa6";
+import { FaRegTrashCan, FaHeart } from "react-icons/fa6";
+import { FaRegHeart } from "react-icons/fa";
 import moment from 'moment'
 import { useSelector } from 'react-redux';
 import axios from 'axios';
@@ -17,6 +18,9 @@ const Blog = () => {
     const [userData, setUserData] = useState(null)
     const [notFound, setNotFound] = useState(false);
     const [serverError, setServerError] = useState(false);
+    const [numberOfLikes, setNumberOfLikes] = useState(0);
+    const [isLike, setIsLike] = useState(null);
+    const [likesArray, setLikesArray] = useState(null)
     const location = useLocation();
     useEffect(() => {
         const getBlogData = async () => {
@@ -24,6 +28,9 @@ const Blog = () => {
                 const resp = await axios.get(base_url + `/blogs/${blogId}`, { headers: { Authorization: accessToken || localStorage.getItem('accessToken') } });
                 if (resp.status === 200 && resp.data.success) {
                     setBlogData(resp.data.blog);
+                    setNumberOfLikes(resp.data.blog.likes.length)
+                    setLikesArray(resp.data.blog.likes)
+                    setIsLike(resp.data.blog.likes.includes(userId) ? true : false)
                 }
             } catch (error) {
                 if (error.response.status === 404) {
@@ -83,6 +90,29 @@ const Blog = () => {
         e.preventDefault();
         navigate(`/blog/${ownerId}/${blogId}/edit`)
     }
+
+    const handleLikeButton = async (e) => {
+        e.preventDefault()
+
+        await axios.get(base_url + `/blogs/${blogId}/${likesArray.includes(userId) ? 'unlike' : 'like'}`, { headers: { Authorization: accessToken || localStorage.getItem('accessToken') } }).then(res => {
+            console.log(res)
+            if (res.data.success) {
+                if (likesArray.includes(userId)) {
+                    setLikesArray(likesArray.filter(like => like !== userId));
+                    setNumberOfLikes(prev => prev - 1);
+                }
+                if (likesArray.includes(userId) === false) {
+                    setNumberOfLikes(prev => prev + 1)
+                    likesArray.push(userId);
+                }
+                setIsLike(!isLike)
+            } else {
+                toast.error("something went wrong!")
+            }
+        }).catch(error => {
+            console.log(error)
+        })
+    }
     return (
         <>
             {serverError && <div className='container mt-5 error'>
@@ -101,6 +131,10 @@ const Blog = () => {
                 <hr />
                 <h3 style={{ textAlign: 'center', margin: '7px 1px' }}>{blogData && blogData.title}</h3>
                 <p style={{ textAlign: 'center', fontSize: 'small', fontStyle: 'italic' }}>Written by @{userData && userData.username} - {blogData && moment(blogData.created_at).format('MMM Do YYYY')} - {blogData && Math.ceil(blogData.content.length / 1500) + ' min(s) reading'}</p>
+                <p style={{ textAlign: 'center' }}>
+                    <span style={{ cursor: 'pointer' }} onClick={(e) => handleLikeButton(e)}>{likesArray && likesArray.includes(userId) ? <FaHeart style={{ color: 'red' }} /> : <FaRegHeart style={{ color: 'red' }} />}</span>
+                    <span style={{ fontSize: 'small', marginLeft: '10px', color: '#55f' }}>{numberOfLikes > 0 ? `${numberOfLikes} like(s)` : 'No like(s) yet!'}</span>
+                </p>
                 <hr />
 
                 <div style={{ paddingRight: '5vw', paddingLeft: '5vw', paddingBottom: '5vw' }} id='content' dangerouslySetInnerHTML={{ __html: blogData && blogData.content }}></div>
